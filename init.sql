@@ -4,7 +4,8 @@ CREATE TABLE Platillo (
     Nombre TEXT NOT NULL,
     Categoria TEXT NOT NULL,
     Presentacion TEXT NOT NULL,
-    Restaurante TEXT NOT NULL
+    Restaurante TEXT NOT NULL,
+    Precio NUMERIC(10, 2) NOT NULL CHECK (Precio >= 0)
 );
 
 CREATE TABLE Repartidor (
@@ -42,6 +43,7 @@ CREATE TABLE Orden (
 CREATE TABLE Platillo_Orden (
     ID_Platillo INT REFERENCES Platillo(ID_Platillo),
     ID_Orden INT REFERENCES Orden(ID_Orden),
+    Cantidad INT CHECK (Cantidad > 0),
     PRIMARY KEY (ID_Platillo, ID_Orden)
 );
 
@@ -54,22 +56,22 @@ CREATE TABLE Comentario (
     ID_Platillo INT REFERENCES Platillo(ID_Platillo)
 );
 
-INSERT INTO Platillo (Nombre, Categoria, Presentacion, Restaurante) VALUES 
-('Pizza Margarita', 'Italiana', 'Mediana', 'Ristorante A'),
-('Pasta Carbonara', 'Italiana', 'Tazón', 'Ristorante A'),
-('Sushi', 'Japonesa', '8 piezas', 'Casa de Sushi'),
-('Tempura', 'Japonesa', '6 piezas', 'Casa de Sushi'),
-('Tacos al Pastor', 'Mexicana', '3 piezas', 'Taquería B'),
-('Quesadilla', 'Mexicana', '1 pieza', 'Taquería B'),
-('Hamburguesa', 'Americana', '1 pieza', 'FastFood C'),
-('Nuggets de Pollo', 'Americana', '10 piezas', 'FastFood C'),
-('Pad Thai', 'Tailandesa', 'Tazón', 'Cocina Tailandesa'),
-('Sopa Tom Yum', 'Tailandesa', 'Taza', 'Cocina Tailandesa'),
-('Churros', 'Postre', '5 piezas', 'Tienda de Postres'),
-('Helado', 'Postre', '1 bola', 'Tienda de Postres'),
-('Gyros', 'Griega', '1 pieza', 'Taberna Griega'),
-('Moussaka', 'Griega', 'Rebanada', 'Taberna Griega'),
-('Ensalada Vegana', 'Saludable', 'Tazón', 'Salud Primero');
+INSERT INTO Platillo (Nombre, Categoria, Presentacion, Restaurante, Precio) VALUES 
+('Pizza Margarita', 'Italiana', 'Mediana', 'Ristorante A', 10.00),
+('Pasta Carbonara', 'Italiana', 'Tazón', 'Ristorante A', 12.00),
+('Sushi', 'Japonesa', '8 piezas', 'Casa de Sushi', 15.00),
+('Tempura', 'Japonesa', '6 piezas', 'Casa de Sushi', 9.00),
+('Tacos al Pastor', 'Mexicana', '3 piezas', 'Taquería B', 6.00),
+('Quesadilla', 'Mexicana', '1 pieza', 'Taquería B', 4.50),
+('Hamburguesa', 'Americana', '1 pieza', 'FastFood C', 8.00),
+('Nuggets de Pollo', 'Americana', '10 piezas', 'FastFood C', 5.00),
+('Pad Thai', 'Tailandesa', 'Tazón', 'Cocina Tailandesa', 11.00),
+('Sopa Tom Yum', 'Tailandesa', 'Taza', 'Cocina Tailandesa', 7.00),
+('Churros', 'Postre', '5 piezas', 'Tienda de Postres', 3.00),
+('Helado', 'Postre', '1 bola', 'Tienda de Postres', 2.50),
+('Gyros', 'Griega', '1 pieza', 'Taberna Griega', 9.50),
+('Moussaka', 'Griega', 'Rebanada', 'Taberna Griega', 10.50),
+('Ensalada Vegana', 'Saludable', 'Tazón', 'Salud Primero', 8.50);
 
 INSERT INTO Repartidor (Nombre, Apellido, RFC, CURP, Placas, Domicilio, Telefono) VALUES
 ('Juan', 'Pérez', 'JUAP010101ABC', 'JUAP010101HDFTRN0', 'XYZ123', 'Calle Principal 123', '1111111111'),
@@ -122,22 +124,22 @@ INSERT INTO Orden (Total, Domicilio, ID_Platillo, ID_Repartidor, ID_Cliente) VAL
 (220.00, 'Calle Eucalipto 1313', 14, 14, 14),
 (100.50, 'Calle Ciprés 1414', 15, 15, 15);
 
-INSERT INTO Platillo_Orden (ID_Platillo, ID_Orden) VALUES 
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10),
-(11, 11),
-(12, 12),
-(13, 13),
-(14, 14),
-(15, 15);
+INSERT INTO Platillo_Orden (ID_Platillo, ID_Orden, Cantidad) VALUES 
+(1, 1, 2),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 3),
+(5, 5, 2),
+(6, 6, 4),
+(7, 7, 1),
+(8, 8, 3),
+(9, 9, 1),
+(10, 10, 2),
+(11, 11, 1),
+(12, 12, 2),
+(13, 13, 1),
+(14, 14, 1),
+(15, 15, 2);
 
 INSERT INTO Comentario (Comentario, Calificacion, ID_Cliente, ID_Platillo) VALUES 
 ('¡Sabor increíble!', 5, 1, 1),

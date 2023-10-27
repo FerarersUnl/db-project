@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { Box, CloseButton, Flex, useColorModeValue, Text, BoxProps } from '@chakra-ui/react'
 import { FiUser, FiList, FiTruck, FiDatabase } from 'react-icons/fi'
 import { IconType } from 'react-icons'
@@ -34,9 +35,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             h="full"
             {...rest}>
             <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-                <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-                    CUCEITS
-                </Text>
+                <Link href='/'>
+                    <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" >
+                        CUCEITS
+                    </Text>
+                </Link>
                 <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>
             {LinkItems.map((link) => (
