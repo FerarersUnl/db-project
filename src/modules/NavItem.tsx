@@ -4,15 +4,16 @@ import { Box, Flex, Icon, FlexProps } from '@chakra-ui/react'
 import { IconType } from 'react-icons'
 
 interface NavItemProps extends FlexProps {
+    href?: string
     icon: IconType
     children: React.ReactNode
 }
 
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
     return (
         <Box
             as="a"
-            href="#"
+            href={href || '#'}
             style={{ textDecoration: 'none' }}
             _focus={{ boxShadow: 'none' }}>
             <Flex

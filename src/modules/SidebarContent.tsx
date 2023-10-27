@@ -10,15 +10,16 @@ interface SidebarProps extends BoxProps {
 }
 
 interface LinkItemProps {
+    href?: string
     name: string
     icon: IconType
 }
 
 const LinkItems: Array<LinkItemProps> = [
-    { name: 'Platillos', icon: FiDatabase },
-    { name: 'Repartidores', icon: FiTruck },
-    { name: 'Clientes', icon: FiUser },
-    { name: 'Ordenes', icon: FiList },
+    { name: 'Platillos', icon: FiDatabase, href: '/platillos' },
+    { name: 'Repartidores', icon: FiTruck, href: '/repartidores' },
+    { name: 'Clientes', icon: FiUser, href: '/clientes' },
+    { name: 'Ordenes', icon: FiList, href: '/ordenes' },
 ]
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
@@ -39,7 +40,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
                 <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>
             {LinkItems.map((link) => (
-                <NavItem key={link.name} icon={link.icon}>
+                <NavItem key={link.name} icon={link.icon} href={link.href}>
                     {link.name}
                 </NavItem>
             ))}
