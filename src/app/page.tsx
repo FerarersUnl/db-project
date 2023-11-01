@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react'
 import MobileNav from '@/modules/MobileNav'
 import SidebarContent from '@/modules/SidebarContent'
-import { FiStar, FiThumbsUp } from 'react-icons/fi'
+import { FiThumbsUp } from 'react-icons/fi'
 
 const Dashboard = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()

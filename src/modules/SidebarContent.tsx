@@ -20,7 +20,6 @@ const LinkItems: Array<LinkItemProps> = [
     { name: 'Platillos', icon: FiDatabase, href: '/platillos' },
     { name: 'Repartidores', icon: FiTruck, href: '/repartidores' },
     { name: 'Clientes', icon: FiUser, href: '/clientes' },
-    { name: 'Ordenes', icon: FiList, href: '/ordenes' },
 ]
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
