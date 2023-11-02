@@ -28,3 +28,17 @@ export interface Repartidor {
     domicilio: string;
     telefono: string;
 }
+
+export interface Opinion {
+    id_platillo: number;
+    platillo_nombre: string;
+    categoria: string;
+    presentacion: string;
+    restaurante: string;
+    precio: string;
+    id_comentario: string;
+    comentario: string;
+    calificacion: string;
+    comentario_fecha: string;
+}
+

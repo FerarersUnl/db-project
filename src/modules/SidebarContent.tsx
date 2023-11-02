@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Box, CloseButton, Flex, useColorModeValue, Text, BoxProps } from '@chakra-ui/react'
-import { FiUser, FiList, FiTruck, FiDatabase } from 'react-icons/fi'
+import { FiUser, FiList, FiTruck, FiDatabase, FiTarget } from 'react-icons/fi'
 import { IconType } from 'react-icons'
 import NavItem from './NavItem'
 
@@ -20,6 +20,7 @@ const LinkItems: Array<LinkItemProps> = [
     { name: 'Platillos', icon: FiDatabase, href: '/platillos' },
     { name: 'Repartidores', icon: FiTruck, href: '/repartidores' },
     { name: 'Clientes', icon: FiUser, href: '/clientes' },
+    { name: 'Opiniones', icon: FiTarget, href: '/opiniones' },
 ]
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {

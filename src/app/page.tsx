@@ -7,6 +7,9 @@ import {
 import MobileNav from '@/modules/MobileNav'
 import SidebarContent from '@/modules/SidebarContent'
 import { FiThumbsUp } from 'react-icons/fi'
+import { useEffect, useState } from 'react'
+
+
 
 const Dashboard = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
